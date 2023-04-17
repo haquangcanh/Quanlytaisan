@@ -39,7 +39,7 @@ async function log(page, limit) {
 
 haDelete = async (id) => {
   try {
-    let processed = confirm("Do you want to delete this account?");
+    let processed = confirm("Do you want to delete this Asset?");
     if (processed) {
       await $.ajax({
         url: `/home/api/${id}`,

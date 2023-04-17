@@ -20,16 +20,17 @@
       <td><%= asset.AssetDate %></td>
       <td><%= asset.CreatedDate.toLocaleString() %></td>
       <td>
-          <button onclick="haDelete('<%= asset._id %>')">Delete</button>
+          <button 
+          class="btn btn-primary"
+          onclick="haDelete('<%= asset._id %>')">Delete
+          </button>
         
           <button
             type="button"
             class="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            onclick="opUpdate('<%= asset._id %>')"
-          >
-            update
+            onclick="opUpdate('<%= asset._id %>')">update
           </button>
         
       </td>

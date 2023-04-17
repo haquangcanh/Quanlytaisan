@@ -3,7 +3,7 @@ const Asset = require("../models/asset.model");
 const NewAsset = require("../models/requestByNew.model");
 const User = require("../models/user.model");
 module.exports.getAllAssetAvailable = async (req, res) => {
-  try {
+  try { 
     const assets = await Asset.find({ State: "available" })
       .populate("Category")
       .limit(15);
@@ -21,8 +21,7 @@ module.exports.getAllAssetAvailable = async (req, res) => {
       status: "fail",
       message: "Internal Server",
     });
-  }
-};
+  }};
 
 module.exports.postRequestByAssetNew = async (req, res) => {
   try {
@@ -39,8 +38,8 @@ module.exports.postRequestByAssetNew = async (req, res) => {
       status: "fail",
       message: "Internal Server",
     });
-  }
-};
+  }};
+  
 module.exports.getFind = async (req, res) => {
   try {
     req.query.limit = req.query.limit ? req.query.limit : 15;
