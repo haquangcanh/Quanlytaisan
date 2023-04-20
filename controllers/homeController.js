@@ -127,14 +127,13 @@ module.exports.getPagination = async (req, res) => {
 
 module.exports.deleteAsset = async (req, res) => {
   try {
-    const user = await Asset.findById(req.params.id);
-    if (!user) {
+    const deAsset = await Asset.findById(req.params.id);
+    if (!deAsset) {
       return res.status(400).json({
         status: "Fail",
         message: "Can not find user",
       });
     }
-
     await Asset.deleteOne({ _id: req.params.id });
 
     res.status(200).json({
@@ -149,11 +148,11 @@ module.exports.deleteAsset = async (req, res) => {
   }
 };
 
-module.exports.getUserById2 = async (req, res) => {
+module.exports.getAssetById = async (req, res) => {
   try {
-    const user1 = await Asset.findOne({ _id: req.params.id });
-    if (user1) {
-      res.json(user1);
+    const upAsset1 = await Asset.findOne({ _id: req.params.id });
+    if (upAsset1) {
+      res.json(upAsset1);
     } else {
       res.status(404).json({
         status: "Fail",

@@ -1,6 +1,5 @@
 async function newAsset() {
   const AssetName = $("#AssetName").val().trim();
-  const Amount = $("#Amount").val();
   const Category = $("#Category").val();
   const assets = await $.ajax({
     url: "/home/requestByAssetNew",
@@ -40,10 +39,11 @@ haDelete = async (id) => {
     let processed = confirm("Do you want to delete this Asset?");
     if (processed) {
       await $.ajax({
-        url: `/home/api/${id}`,
+        url: `/home/${id}`,
         type: "DELETE",
       });
-      window.location.reload();
+        window.location.reload();
+      
     }
   } catch (error) {
     alert(error.responseJSON.message);
@@ -56,12 +56,13 @@ opUpdate = async (id) => {
     idAsset1 = id;
     console.log(28, idAsset1);
     const res = await $.ajax({
-      url: `/home/api/${idAsset1}`,
+      url: `/home/${idAsset1}`,
       type: "GET",
     });
 
     $(".AssetName").val(res.AssetName);
     console.log(res);
+
 
   } catch (error) {
     console.log(error);
@@ -75,7 +76,7 @@ hanUpdate = async () => {
     const Category = $(".categoryUpDate").val();
     
     await $.ajax({
-      url: `/home/api/${idAsset1}`,
+      url: `/home/${idAsset1}`,
       type: "PUT",
       data: {
         AssetName: AssetName,

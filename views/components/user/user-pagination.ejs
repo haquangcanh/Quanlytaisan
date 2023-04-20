@@ -1,6 +1,5 @@
 <table class="table">
   <thead class="table-thead">
-    <tr>
       <th scope="col">STT</th>
       <th scope="col">AssetName</th>
       <th scope="col">Category</th>
@@ -8,7 +7,6 @@
       <th scope="col">AssetDate</th>
       <th scope="col">CreatedDate</th>
       <th scope="col">Action</th>
-    </tr>
   </thead>
   <tbody class="table-tbody">
     <% listAsset.map(function(asset, index){ %>
@@ -24,7 +22,6 @@
           class="btn btn-primary"
           onclick="haDelete('<%= asset._id %>')">Delete
           </button>
-        
           <button
             type="button"
             class="btn btn-primary"
@@ -32,7 +29,6 @@
             data-bs-target="#staticBackdrop"
             onclick="opUpdate('<%= asset._id %>')">update
           </button>
-        
       </td>
     </tr>
     <%})%>
